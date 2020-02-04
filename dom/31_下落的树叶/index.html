@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        
+        
+        var screenwidth = document.documentElement.clientWidth;
+        var screenHeight = document.documentElement.clientHeight; 
+         function Leaf(){
+            this.width = Math.random()*50+100;  
+            this.pos = {
+                left:Math.random()*(screenwidth-this.width),
+                top:0
+            }
+            this.speed = 3;
+             var oImg = new Image(); 
+            oImg.src= "img/"+ (Math.floor(Math.random()*4)+1) +".png"  
+            oImg.style.width = this.width+ "px";
+            oImg.style.left = this.pos.left +"px"; 
+            oImg.style.top = this.pos.top +"px";
+            this.img = oImg;
+        }
+        
+        Leaf.prototype.in = function(){
+            document.body.appendChild(this.img);
+        }
+        Leaf.prototype.fall = function(){
+            
+            var that = this;
+            setTimeout(function(){
+                that.timer = setInterval(function(){
+                   
+                    if(that.img.offsetTop >= screenHeight - that.img.offsetHeight){
+                        // console.log(that.timer);
+                        clearInterval(that.timer);
+                    }else{
+                        
+                        that.img.style.top = that.img.offsetTop + that.speed +"px";
+                    }
+                }, 10);
+            }, Math.random()*500);
+        }
+        var leafs = [];
+        for(var i=0; i<5;i++){
+            var leaf = new Leaf();
+            leafs.push(leaf);
+            leaf.in();
+        }
+         document.onclick = function(){
+             for(var j=0; j<leafs.length; j++){
+                leafs[j].fall();
+            }
+        }
+        </script>
+    
+</body>
+</html>
