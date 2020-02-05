@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+            perspective: 1000px;
+        }
+        #container{
+            margin:100px auto;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            animation: run 10s linear infinite;
+            transform-style: preserve-3d;
+        }
+        @keyframes run {
+            100%{transform: rotateY(360deg);}
+        }
+        #container div{
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            font-size: 60px;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        #div6{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        #div5{ 
+            transform: rotateY(-90deg) translateZ(100px); 
+        } 
+        #div4{
+            transform: rotateY(180deg) translatez(100px);
+        }
+        #div3{
+            transform: translateZ(100px);
+        }
+        #div2{
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        #div1{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+    </style>
+</head>
+<body>
+        <div id="container">
+            <div id="div1">1</div>
+            <div id="div2">2</div>
+            <div id="div3">3</div>
+            <div id="div4">4</div>
+            <div id="div5">5</div>
+            <div id="div6">6</div>
+        </div>
+</body>
+</html>
