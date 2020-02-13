@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url(img/bg.jpg);
+        }
+        .item{
+            width: 125px;
+            height: 125px;
+            border: 5px solid #fff;
+            position: absolute;
+            left: -135px;
+            top: -135px;
+            transition: all 1.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+<div id="container"></div>    
+<script>
+    var oContainer = document.getElementById('div');
+    var count = 0;
+    //加载小图
+    for(var i=0; i<24; i++){
+        var oImg = new Image();
+        oImg.onload = function(){
+            if(count == 48){
+                loadSuccess();
+            }
+        }
+        oImg.src = "img/thumbs/" +(i+1)+ ".jpg"; 
+    }
+    //加载大图
+    for(var i=0; i<24; i++){
+        var oImg = new Image();
+        oImg.onload = function(){
+            if(count == 48){
+                loadSuccess();
+            }
+        }
+        oImg.src = "img/" +(i+1)+ ".jpg"; 
+    }
+    function loadSuccess(){
+        var index = 0;
+        for(var i=0; i<4; i++){
+            for(var j=0; j<6; j++){
+                var oDiv = document.createElement('div');
+                oDiV.className = "item";
+                index++;
+                oDiv.style.background = "url(img/thumbs/"+(index)+".jpg) 0 0 no-repeat";
+                oContainer.appendChild(oDiv);
+                
+            }
+        }
+    }
+</script>
+</body>
+</html>
