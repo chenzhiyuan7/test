@@ -47,5 +47,10 @@ module.exports = {
             template:"./src/index.html"
         }),
         new CleanWebpackPlugin()
-    ]
+    ],
+    devServer:{
+        contentBase:path.resolve(__dirname,'dist'),
+        host:'localhost',
+        
+    }
 }
