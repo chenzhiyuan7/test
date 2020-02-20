@@ -1,13 +1,12 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const{ CleanWebpackPlugin} = require("clean-webpack-plugin");
+const webpack = require('webpack');
+const output = require('./webpack.output.js')
 module.exports = {
     mode:"development",
     entry:"./src/index.js",
-    output:{
-        filename:"xxxxxxxxx.js",
-        path:path.resolve(__dirname,"dist")
-    },
+    output:output,
     module:{
         rules:[
             {
@@ -39,6 +38,14 @@ module.exports = {
                     "postcss-loader",
                     "sass-loader"
                 ]
+            },
+            {
+                test:/\.js$/,
+                loader:"babel-loader",
+                options:{
+                    presets:["@babel/preset-env"]
+                },
+                exclude:/node_modules/
             }
         ]
     },
@@ -46,11 +53,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:"./src/index.html"
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.BannerPlugin("菜鸟上路")
     ],
     devServer:{
         contentBase:path.resolve(__dirname,'dist'),
         host:'localhost',
+        open:true
         
     }
 }
