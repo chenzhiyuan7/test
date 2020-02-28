@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="text">
+        {{d1}}
+        {{d2}}
+        <span v-text="d3"></span>
+        <hr>
+        <ul>
+            <li v-for="val in arr">{{val}}</li>
+        </ul>
+        <button @click="fn()">click</button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#text",
+            data:{
+                d1:'keyi',
+                d2:"111",
+                d3:'<h1>牛啊</h1>',
+                arr:["张三","李四","王五","赵六"]
+            },
+            methods:{
+                fn(){
+                    console.log('1')
+                }
+            }            
+        })
+    </script>
+</body>
+</html>
