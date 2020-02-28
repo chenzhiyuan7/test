@@ -1,18 +1,17 @@
 <template>
-    <footer :style="{background:$store.state.color}">
-        <router-link v-for="(obj,index) in menu" 
-         :key="index"
-          :to="obj.path" 
+    <footer :style="{background:$store.state.color}" >
+        <router-link v-for="(obj,index) in menu" :key="index" :to="obj.path" 
          @click.native="$store.commit('change',obj)"
         >
-            {{obj.title}}
+     
+         {{obj.title}}
         </router-link>
     </footer>
 </template>
 
 <script>
     export default {
-        date(){
+        data(){
             return{
                 menu:[
                     {
@@ -64,7 +63,7 @@ footer{
             flex:1;
             text-align: center;
             color:#000;
-            font-size: 14px;
+            font-size: 12px;
             cursor: pointer;
         }
         .router-link-active{

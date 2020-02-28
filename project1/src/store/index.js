@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {clolor:"red",
+  state: {
+    clolor:"red",
   title:"电影"
   },
   mutations: {

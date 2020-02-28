@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <component-header></component-header>
-    <div class="container" :style="{background:$store.state.color}">
+    <div class="container" >
+       <!-- {{$store.state.title}} -->
+        {{$store.state.color}} 
     </div>
     <component-footer></component-footer>
   </div>
